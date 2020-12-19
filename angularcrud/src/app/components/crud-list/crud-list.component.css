@@ -1,0 +1,9 @@
+.list-container{
+    margin: 5%;
+    text-align: center
+}
+.business-container{
+    flex: 1;
+    margin: 1%;
+    text-align: center
+}

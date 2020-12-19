@@ -1,0 +1,78 @@
+<mat-card class="form-container">
+  <mat-card-title>Add A New Business</mat-card-title>
+  <form [formGroup]="angForm" novalidate (submit)="addBusiness()">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Person Name </mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="person_name"
+        required
+        #person_name
+      />
+      <mat-error
+        *ngIf="
+          f.person_name.invalid &&
+          (f.person_name.dirty || f.person_name.touched)
+        "
+      >
+        <span *ngIf="f.person_name.errors.required"
+          >This field is mandatory.</span
+        >
+        <span *ngIf="f.person_name.errors.pattern"
+          >This field is invalid.</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Business Name </mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="business_name"
+        required
+        #business_name
+      />
+      <mat-error
+        *ngIf="
+          f.business_name.invalid &&
+          (f.business_name.dirty || f.business_name.touched)
+        "
+      >
+        <span *ngIf="f.business_name.errors.required"
+          >This field is mandatory.</span
+        >
+        <span *ngIf="f.business_name.errors.pattern"
+          >This field is invalid.</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Business GST Number </mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="business_gst_number"
+        required
+        #business_gst_number
+      />
+      <mat-error
+        *ngIf="
+          f.business_gst_number.invalid &&
+          (f.business_gst_number.dirty || f.business_gst_number.touched)
+        "
+      >
+        <span *ngIf="f.business_gst_number.errors.required"
+          >This field is mandatory.</span
+        >
+        <span *ngIf="f.business_gst_number.errors.pattern"
+          >This field is invalid.</span
+        >
+      </mat-error>
+    </mat-form-field>
+
+    <button [disabled]="angForm.pristine || angForm.invalid" mat-raised-button color="primary" type="submit"> 
+          Add Business</button>
+  </form>
+</mat-card>
+

@@ -1,0 +1,35 @@
+version: "2"
+services:
+  app:
+    container_name: appCrud
+    restart: always
+    build: .
+    ports:
+      - "4000:4000"
+    networks:
+      - mongito
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=$MONGO_HOSTNAME
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
+    depends_on: 
+      - mongo
+  mongo:
+    container_name: mongoDBCrud
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks: 
+      - mongito
+    volumes: 
+      - dbdata:/data/db
+networks: 
+  mongito:
+      external: true
+volumes: 
+  dbdata: 
+      external: true
+
+

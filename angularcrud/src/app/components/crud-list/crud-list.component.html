@@ -1,0 +1,15 @@
+<mat-card class="list-container">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <div *ngFor="let business of businessList" class="owner" routerLink="/business/{{business._id}}">
+      <mat-grid-tile>
+        <mat-card class="business-container" >
+          <p>{{ business.person_name }}</p>
+          <p>{{ business.business_name }}</p>
+          <p>{{ business.business_gst_number }}</p>
+          <button mat-raised-button color="secundary" routerLink="/business/{{business._id}}"> 
+            <fa-icon [icon]="faEdit"></fa-icon> Edit</button>
+        </mat-card>
+        </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</mat-card>
